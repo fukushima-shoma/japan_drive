@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'icofont';
+  src:  url('../fonts/icofont.eot?6la814');
+  src:  url('../fonts/icofont.eot?6la814#iefix') format('embedded-opentype'),
+    url('../fonts/icofont.ttf?6la814') format('truetype'),
+    url('../fonts/icofont.woff?6la814') format('woff'),
+    url('../fonts/icofont.svg?6la814#icofont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icofont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-okinawa:before {
+  content: "\e900";
+}
+.icon-kyusyu:before {
+  content: "\e901";
+}
+.icon-sikoku:before {
+  content: "\e902";
+}
+.icon-tyugoku:before {
+  content: "\e903";
+}
+.icon-hokuriku:before {
+  content: "\e905";
+}
+.icon-kinki:before {
+  content: "\e906";
+}
+.icon-kanto:before {
+  content: "\e90f";
+}
+.icon-tokai:before {
+  content: "\e904";
+}
+.icon-touhoku:before {
+  content: "\e912";
+}
+.icon-hokkaido:before {
+  content: "\e913";
+}
