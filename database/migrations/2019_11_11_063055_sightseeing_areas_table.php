@@ -16,9 +16,11 @@ class SightseeingAreasTable extends Migration
       Schema::create('sightseeing_areas', function (Blueprint $table) {
         $table->bigIncrements('id');
 
-        $table->bigInteger('home_categories_id')->unsigned()->index();
-        $table->bigInteger('sightseeing_area_theme_categores_id')->unsigned()->index();
-
+        $table->bigInteger('home_category_id')->unsigned()->index();
+        $table->bigInteger('sightseeing_area_theme_category_id')->unsigned()->index();
+        $table->bigInteger('region_id')->unsigned()->index();
+        $table->bigInteger('pref_id')->unsigned()->index();
+        
         $table->string('sightseeing_area_name')->nullable();
 
       });

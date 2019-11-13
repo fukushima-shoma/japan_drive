@@ -19,4 +19,4 @@ Route::get('/', 'PagesController@getHome');
 Route::get('/drive', 'PagesController@getDrive');
 Route::get('/food', 'PagesController@getFood');
 Route::get('/sightseeing', 'PagesController@getSightseeing');
-Route::get('/weather', 'PagesController@getWeather');
+Route::get('/area/{area_id}/{theme_id?}', 'PagesController@getSightseeing');

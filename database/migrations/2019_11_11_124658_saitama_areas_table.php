@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SightseeingareasThemeCategoriesTable extends Migration
+class SaitamaAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class SightseeingareasThemeCategoriesTable extends Migration
      */
     public function up()
     {
-      Schema::create('sightseeing_area_theme_categories', function (Blueprint $table) {
+      Schema::create('saitama_areas', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->string('sightseeing_area_theme_category_name')->nullable();
+
+          $table->string('saitama_area_name')->nullable();
+
+          $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+          $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
 
       });
     }
@@ -27,6 +31,6 @@ class SightseeingareasThemeCategoriesTable extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('sightseeing_area_theme_categories');
+        Schema::dropIfExists('saitama_areas');
     }
 }

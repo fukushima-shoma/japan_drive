@@ -16,11 +16,13 @@ class FoodsTable extends Migration
       Schema::create('foods', function (Blueprint $table) {
         $table->bigIncrements('id');
 
-        $table->bigInteger('home_categories_id')->unsigned()->index();
-        $table->bigInteger('food_theme_categores_id')->unsigned()->index();
+        $table->bigInteger('home_category_id')->unsigned()->index();
+        $table->bigInteger('food_theme_category_id')->unsigned()->index();
+        $table->bigInteger('region_id')->unsigned()->index();
+        $table->bigInteger('pref_id')->unsigned()->index();
+        $table->bigInteger('season_id')->unsigned()->index();
 
         $table->string('food_name')->nullable();
-
       });
     }
 

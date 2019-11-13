@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SightseeingAreasTableSeeder extends Seeder
+class SaitamaAreasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -72,7 +72,6 @@ class SightseeingAreasTableSeeder extends Seeder
         ['saitama_area_name' => '神川町'],
         ['saitama_area_name' => '秩父市'],
         ['saitama_area_name' => '小鹿野町'],
-
 
       ]);
     }

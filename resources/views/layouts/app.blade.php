@@ -22,14 +22,11 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
-
 <body>
-    <header>
+  <header>
 
-        <div class="container">
-          <nav class="navbar navbar-expand-md">
-
-              <ul class="navbar-nav ">
+      <nav class="navbar navbar-expand-md">
+        <ul class="navbar-nav ">
                 <li class="navbar-nav-item navbar-nav-item-home">
                   <a class="nav-link" href="/">ホーム</a>
                 </li>
@@ -83,16 +80,14 @@
                     </div>
                   </li>
                     @endguest
-                </ul>
-          </nav>
-        </div>
+      </ul>
+    </nav>
 
-    </header>
+  </header>
 
-
-    <main class="">
-                  @yield('content')
-    </main>
+  <main>
+                @yield('content')
+  </main>
 
 </body>
 </html>
