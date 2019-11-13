@@ -31,12 +31,7 @@
   }
 </style>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    window.location.href="https://4each.jp";
-});
-</script>
+
 
 
 @extends('layouts.app')
@@ -103,7 +98,7 @@ $(function(){
   <picture>
     <img src="../images/saitama_map.png"  alt="埼玉県の地図" usemap="#saitama-map-clickable">
   </picture>
-
+<!--
   <map name="saitama-map-clickable">
     <area  type="submit target="" alt="三郷市" title="三郷市" href="/drive" coords="936,436,930,436,924,437,917,438,911,439,905,440,900,441,899,447,900,454,902,461,902,467,905,471,910,474,916,476,919,483,920,490,917,495,911,502,918,501,923,504,921,509,925,514,932,513,937,515,937,508,936,501,935,493,935,484,935,474,937,466,944,466,951,466,952,459,952,452,947,449,941,449,941,434,942,441" shape="poly">
     <area target="" alt="吉川市" title="吉川市" href="" coords="902,375,908,375,914,375,896,381,895,387,901,391,900,397,894,401,890,405,896,409,896,414,897,420,896,430,897,441,905,439,912,437,918,435,926,435,934,435,940,434,939,426,942,420,945,412,944,405,937,403,930,403,927,396,923,390,920,383,920,376" shape="poly">
@@ -120,12 +115,17 @@ $(function(){
     <area target="" alt="蕨市" title="蕨市" href="" coords="767,467,784,471,796,471,795,484,788,484,767,484,766,477,762,472" shape="poly">
     <area target="" alt="戸田市" title="戸田市" href="" coords="728,472,729,476,731,486,741,487,750,501,790,501,789,487,765,486,766,479,753,467,747,471,736,469" shape="poly">
 
-
+-->
   </map>
 
 
 </div>
 </form>
+@foreach($posts as $post)
+<a>
+{{ ($posts->title ) }}
+</a>
+@endforeach
 
 
 

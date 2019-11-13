@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PagesController extends Controller
 {
@@ -20,16 +21,18 @@ class PagesController extends Controller
 
     public function getSightseeing(Request $request){
 
-      $area_id = $request -> input('area_id');
-      $theme_id = $request -> input('theme_id');
+      $q = \Request::query();
 
-      dd($area_id);
-    //  $posts = Post::latest()->where('area_id', $q['area_id']);
+      $posts = Post::latest()->where('area_id', $q['area_id'])->get();
 
-return view ('sightseeing');
-      //  return view ('sightseeing',[
-      //    'posts' => $posts
-      //  ]);
+
+
+      dd($posts);
+
+        return view ('sightseeing',[
+         'posts' => $posts
+     ]);
+
 
     }
 
