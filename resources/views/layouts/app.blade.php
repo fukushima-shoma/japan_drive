@@ -28,10 +28,10 @@
       <nav class="navbar navbar-expand-md">
         <ul class="navbar-nav ">
                 <li class="navbar-nav-item navbar-nav-item-home">
-                  <a class="nav-link" href="/">ホーム</a>
+                  <a class="nav-link" href="/sightseeing">ホーム</a>
                 </li>
 
-                <li class="navbar-nav-item navbar-nav-item-drive">
+                <!-- <li class="navbar-nav-item navbar-nav-item-drive">
                   <a class="nav-link" href="/drive">ドライブ</a>
                 </li>
 
@@ -45,12 +45,22 @@
 
                 <li class="navbar-nav-item navbar-nav-item-whether">
                   <a class="nav-link" href="/weather">天候</a>
-                </li>
+                </li> -->
 
-                <li class="navbar-nav-item navbar-nav-item-search">
+                <!-- <li class="navbar-nav-item navbar-nav-item-search">
                   <input type="text" class="form-control input-lg" placeholder="検索する" name="search">
                     <i class="nav-link fas fa-search "></i>
-                </li>
+                </li> -->
+
+                <form action="{{ route('pages.search') }}" method="get">
+                    {{ csrf_field() }}
+                      <input type="text" class="form-control input-lg" placeholder="キーワード検索" name="search">
+                      <span class="input-group-btn">
+                          <button class="" type="submit">
+                              <i class="fas fa-search"></i>
+                          </button>
+                      </span>
+                </form>
 
                 <!-- ログイン -->
                 @guest

@@ -12,6 +12,7 @@
 
 @section('content')
 
+
 <div id="container">
   <div id="topickpath">
 
@@ -21,6 +22,9 @@
 
   </div>
 
+  @isset($search_result)
+  <h5 class="card-title">{{ $search_result }}</h5>
+  @endisset
 
   @foreach($posts as $post)
         <div class="card">
@@ -29,13 +33,12 @@
             <h5 class="card-title">{{ $post->title }}</h5>
             <h5 class="card-theme">{{ $post->theme}}</h5>
             <h5 class="card-content">{{ $post->content }}</h5>
-            <a href="{{ url('/show' , $post->id)}}" class="card-detail">詳細</a>
+            <a href="{{ route('pages.show', 'id='.$post->id) }}" class="card-detail">詳細</a>
           </div>
         </div>
   @endforeach
 
 </div>
-
 
 
 @endsection

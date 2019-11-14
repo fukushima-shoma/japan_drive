@@ -15,7 +15,6 @@ class PostsTableSeeder extends Seeder
           [
             'title' => '杉戸天然温泉 雅楽の湯',
             'theme' => '自然,綺麗',
-            'user_id' => 1,
             'category_id' => 1,
             'area_id' => 62,
             'zip' => '345-0036',

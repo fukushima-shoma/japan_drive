@@ -17,7 +17,6 @@ class PostsTable extends Migration
       $table->bigIncrements('id');
       $table->string('title')->nullable();
       $table->text('theme')->nullable();
-      $table->Integer('user_id')->unsigned()->index();
       $table->Integer('category_id')->unsigned()->index();
       $table->Integer('area_id')->unsigned()->index();
       $table->string('zip')->nullable();
