@@ -7,44 +7,25 @@ use App\Post;
 
 class PagesController extends Controller
 {
-    public function getHome(){
-      return view('home');
-    }
 
-    public function getDrive(){
-      return view('drive');
-    }
 
-    public function getFood(){
-      return view('food');
-    }
-
-    public function getSightseeing(Request $request){
+    public function index(Request $request){
 
       $q = \Request::query();
 
       $posts = Post::latest()->where('area_id', $q['area_id'])->get();
 
-
-
-      dd($posts);
-
-        return view ('sightseeing',[
-         'posts' => $posts
-     ]);
-
+        return view ('area',compact('posts'));
 
     }
 
-    public function getArea(){
+    public function show(Request $request ){
 
-//      $get =
+      $q = \Request::query();
 
-  //    return view('area');
-    }
+      $posts = Post::latest()->where('id', $q['id'])->get();
 
-    public function getWeather(){
-      return view('weather');
-    }
+        return view ('show',compact('posts'));
+   }
 
 }
