@@ -28,7 +28,7 @@ class PagesController extends Controller
         $q = \Request::query();
 
         $posts = Post::latest()->where('id', $q['id'])->get();
-
+// dd($posts);
             return view ('show',compact('posts'));
 
     }

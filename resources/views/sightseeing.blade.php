@@ -24,11 +24,7 @@
     color: #222222;
   }
 
-  body{
-    background-image: url('/images/.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
 </style>
 
 

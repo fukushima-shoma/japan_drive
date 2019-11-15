@@ -1,12 +1,4 @@
-<style>
 
-  header{
-    background-color: black;
-  }
-
-
-
-</style>
 
 @extends('layouts.app')
 
@@ -14,6 +6,13 @@
 
 
 <div id="container">
+
+  @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+  @endif
+
   <div id="topickpath">
 
         <a href="/sightseeing">トップ</a>

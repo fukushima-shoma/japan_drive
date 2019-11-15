@@ -1,9 +1,6 @@
 <style>
 
-  header{
-    background-color: black;
-  }
-
+  
 
 .list_flex{
    width: 80%;}
@@ -169,8 +166,6 @@ $(function(){
   </div>
 
 
-
-
   @foreach($posts as $post)
       <div class="spot">
           <div class="spot-body">
@@ -217,23 +212,24 @@ $(function(){
 <div class="js-modal__bg"></div>
 <div class="js-modal__main">
 
-<p>
-  <form action="{{ route('pages.store') }}" method="POST" enctype="multipart/form-data" >
-      {{ csrf_field() }}
 
+<p>
+  <form action="{{ route('comments.store')}}" method="POST" enctype="multipart/form-data" >
+      {{ csrf_field() }}
 
       <div class="form-group">
         <label for="comment"></label>
-        <textarea class="form-control" rows="5" id="comment" name="content"　placeholder="思い出や感想・おすすめのポイントをお聞かせください。"></textarea>
+        <textarea class="form-control" rows="5" id="comment" name="comment"　placeholder="思い出や感想・おすすめのポイントをお聞かせください。"></textarea>
       </div>
 
       <div class="form-group">
         <label for="exampleFormControlFile1">写真を投稿する</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image_path">
       </div>
 
       <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-      <input type="hidden" name="post_id" value="{{ $post_id }}">
+      <input type="hidden" name="post_id" value="{{ $post->id }}">
+      <input type="hidden" name="area_id" value="{{ $post->area_id }}">
 
       <button type="submit" class="btn btn-primary">クチコミする</button>
     </form>
@@ -249,6 +245,21 @@ $(function(){
 </div>
 
     @endguest
+
+    @foreach($posts as $post)
+
+              <div class="card">
+                <div class="card-body">
+                  <a class="card-text">
+                    投稿者:{{ $post->name }}
+                  </a>
+                  <p class="card-text">{{ $post->comment }}</p>
+                  <img src="{{ asset('storage/image/'.$post->image) }}">
+
+                  </p>
+                </div>
+              </div>
+      @endforeach
 
 
 

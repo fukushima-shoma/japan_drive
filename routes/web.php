@@ -17,6 +17,6 @@ Auth::routes();
 
 Route::get('/sightseeing', 'PagesController@index')->name('pages.index');
 Route::get('/show', 'PagesController@show')->name('pages.show');
-Route::get('/area', 'pagesController@index');
-Route::get('/area', 'PagesController@store')->name('pages.store');
-Route::get('/area/search', 'pagesController@search')->name('pages.search');
+Route::get('/area', 'PagesController@index');
+Route::get('/area/search', 'PagesController@search')->name('pages.search');
+Route::post('/area/comments', 'CommentController@store')->name('comments.store')->middleware('auth');

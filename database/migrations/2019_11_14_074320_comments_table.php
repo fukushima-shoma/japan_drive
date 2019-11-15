@@ -17,6 +17,7 @@ class CommentsTable extends Migration
       $table->bigIncrements('id');
       $table->bigInteger('user_id')->unsigned()->index();
       $table->bigInteger('post_id')->unsigned()->index();
+      $table->bigInteger('area_id')->unsigned()->index();
       $table->string('comment')->nullable();
       $table->string('image_path')->nullable();
       $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
