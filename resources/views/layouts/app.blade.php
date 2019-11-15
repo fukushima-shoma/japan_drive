@@ -19,7 +19,7 @@
 
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-    <link href="{{ asset('css/common.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/common.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
@@ -53,7 +53,7 @@
       @endif
       @else
       <div class="navbar-nav-item dropdown">
-        <select id="navbarDropdown" class="navbar-nav-link" placeholder="{{ Auth::user()->name }}">
+
 
 
 

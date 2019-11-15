@@ -12,11 +12,11 @@ class Comment extends Model
 
   public function users(){
 
-        return $this->belongsTo(\App\User::class, 'foreign_key');
+        return $this->belongsTo(\App\User::class, 'user_id');
     }
 
   public function post(){
 
-        return $this->belongsTo(\App\Post::class,'foreign_key');
+        return $this->belongsTo(\App\Post::class,'post_id', 'id');
     }
 }

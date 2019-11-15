@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CommentRequest;
 use App\Comment;
+use App\User;
 use App\Post;
 
 class CommentController extends Controller
@@ -34,12 +35,12 @@ class CommentController extends Controller
           }
 
           $posts = Post::latest()->where('id', $posts['post_id'])->get();
-          $posts->load('comments');
+          $posts->load('comments', 'comments.users');
+
 
         return view ('/show', [
 
-        'posts' => $posts,
-        'comments' => $posts,
+        'posts' => $posts
 
       ]);
       }

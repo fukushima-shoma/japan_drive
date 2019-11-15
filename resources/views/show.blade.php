@@ -116,7 +116,42 @@
    animation: SlideDown .5s ease-in-out forwards;
    }
 
+
+
+   {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+   }
+   .content{
+       margin: 0 auto;
+       padding: 40px;
+   }
+   .modal{
+       display: none;
+       height: 100vh;
+       position: fixed;
+       top: 0;
+       width: 100%;
+   }
+   .modal__bg{
+       background: rgba(0,0,0,0.8);
+       height: 100vh;
+       position: absolute;
+       width: 100%;
+   }
+   .modal__content{
+       background: #fff;
+       left: 50%;
+       padding: 40px;
+       position: absolute;
+       top: 50%;
+       transform: translate(-50%,-50%);
+       width: 60%;
+   }
 </style>
+
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 $(function(){
@@ -149,10 +184,25 @@ $(function(){
     $(this).next(modalMain).addClass("_slideDown");
   });
 });
+
+
+$(function(){
+    $('.js-modal-open').on('click',function(){
+        $('.js-modal').fadeIn();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    });
+});
+
 </script>
 @extends('layouts.app')
 
 @section('content')
+
+
 
 <div id="container">
   <div id="topickpath">
@@ -169,13 +219,63 @@ $(function(){
   @foreach($posts as $post)
       <div class="spot">
           <div class="spot-body">
+
+            <h5 class="card-title">スポット名:{{ $post->title }}</h5>
+            <h5 class="card-theme">テーマ:{{ $post->theme}}</h5>
+
+            <div class="content">
+                <a class="js-modal-open" href="">
+
+                  <div class="p-now-weather-wrap">
+                      <h2 class="p-now-weather-mh">現在の天気</h2>
+                      <div class="p-now-weather">
+
+                          <div class="p-now-detail">
+                            <p class="p-icn"><img src="https://openweathermap.org/img/wn/{{ $weather_info ['now_icon'] }}@2x.png" alt="{{ $weather_info ['now_des'] }}"></p>
+                            <p class="p-now-des">{{ $weather_info ['now_des'] }}</p>
+                            <p class="p-now-temp">{{ $weather_info ['now_temp'] }}℃</p>
+                            <p class="p-now-humidity">湿度：{{ $weather_info ['now_humidity'] }}%</p>
+                          </div>
+                      </div>
+                  </div>
+
+                </a>
+            </div>
+            <div class="modal js-modal">
+                <div class="modal__bg js-modal-close"></div>
+                <div class="modal__content">
+
+                    @foreach($forecast_array_list as $forecast_array_list)
+                      @if($loop->first or $forecast_array_list ['time'] == '00:00' )
+                        <ul class="">
+                          <p class="">{{ $forecast_array_list ['date'] }}</p>
+                      @endif
+                        <li>
+                          <p class="">{{ $forecast_array_list ['time'] }}</p>
+                          <div class="">
+                            <p class=""><img src="https://openweathermap.org/img/wn/{{ $forecast_array_list ['weather_icon'] }}@2x.png" alt="{{ $forecast_array_list ['weather_des'] }}"></p>
+                            <div class="">
+                              <p class="">{{ $forecast_array_list ['weather_des'] }}</p>
+                              <p class="">{{ $forecast_array_list ['temp'] }}℃</p>
+                              <p class="">湿度:{{ $forecast_array_list ['humidity'] }}%</p>
+                            </div>
+                          </div>
+                        </li>
+                      @if($loop->last or $forecast_array_list['time'] == '21:00')
+                        </ul>
+                      @endif
+                    @endforeach
+
+
+                    <a class="js-modal-close" href="">閉じる</a>
+                </div><!--modal__inner-->
+            </div><!--modal-->
+
             <div class="spot-photos">
               <img class="spot-photo" src="{{ asset('public/image/'.$post->image_path1) }}">
               <img class="spot-photo" src="{{ asset('public/image/'.$post->image_path2) }}">
               <img class="spot-photo" src="{{ asset('public/image/'.$post->image_path3) }}">
             </div>
-            <h5 class="card-title">スポット名:{{ $post->title }}</h5>
-            <h5 class="card-theme">テーマ:{{ $post->theme}}</h5>
             <h5 class="card-content">{{ $post->content }}</h5>
           </div>
         </div>
@@ -245,21 +345,22 @@ $(function(){
 </div>
 
     @endguest
-<?php dd($posts) ?>
-    <!-- @foreach($posts->comments as $comment)
 
+    @foreach($posts as $post)
+        @foreach($post->comments as $comment)
         <div class="card">
           <div class="card-body">
             <a class="card-text">
-              投稿者:{{ $comment->user }}
+              投稿者:{{ $comment->users->name }}
             </a>
             <p class="card-text">{{ $comment->comment }}</p>
-            <img src="{{ asset('storage/image/'.$post->image) }}">
+            <img src="{{ asset('storage/image/'.$comment->image_path) }}">
 
             </p>
           </div>
         </div>
-      @endforeach -->
+        @endforeach
+      @endforeach
 
 
 
