@@ -33,7 +33,7 @@
       <div class="navbar-nav-item">
         <form action="{{ route('pages.search') }}" method="get">
             {{ csrf_field() }}
-          <input type="text" class="form-control input-lg" placeholder="キーワード検索" name="search">
+          <input type="text" class="form-control input-lg" placeholder="キーワード検索" name="search" value="">
           <span class="input-group-btn">
               <button class="" type="submit">
                   <i class="fas fa-search"></i>
