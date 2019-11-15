@@ -6,13 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $table = 'posts';
-
 
     public function comments(){
 
-        return $this->hasMany(\App\Comment);
+        return $this->hasMany(\App\Comment::class, 'post_id', 'id');
     }
+
+    public function users(){
+
+        return $this->belongsTo(\App\User::class, 'foreign_key');
+    }
+
 
 
 }

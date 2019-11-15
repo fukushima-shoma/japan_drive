@@ -1,6 +1,6 @@
 <style>
 
-  
+
 
 .list_flex{
    width: 80%;}
@@ -245,21 +245,21 @@ $(function(){
 </div>
 
     @endguest
+<?php dd($posts) ?>
+    <!-- @foreach($posts->comments as $comment)
 
-    @foreach($posts as $post)
+        <div class="card">
+          <div class="card-body">
+            <a class="card-text">
+              投稿者:{{ $comment->user }}
+            </a>
+            <p class="card-text">{{ $comment->comment }}</p>
+            <img src="{{ asset('storage/image/'.$post->image) }}">
 
-              <div class="card">
-                <div class="card-body">
-                  <a class="card-text">
-                    投稿者:{{ $post->name }}
-                  </a>
-                  <p class="card-text">{{ $post->comment }}</p>
-                  <img src="{{ asset('storage/image/'.$post->image) }}">
-
-                  </p>
-                </div>
-              </div>
-      @endforeach
+            </p>
+          </div>
+        </div>
+      @endforeach -->
 
 
 

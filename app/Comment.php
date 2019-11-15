@@ -6,15 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-  protected $table = 'comments';
+  protected $fillable = [
+    'user_id', 'post_id', 'comment', 'image_path'
+  ];
 
-  public function user(){
+  public function users(){
 
-        return $this->belongsTo(\App\User::class,'user_id');
+        return $this->belongsTo(\App\User::class, 'foreign_key');
     }
-    // 
-    // public function post(){
-    //
-    //       return $this->belongsTo(\App\Post::class,'post_id');
-    //   }
+
+  public function post(){
+
+        return $this->belongsTo(\App\Post::class,'foreign_key');
+    }
 }

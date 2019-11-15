@@ -13,13 +13,14 @@ class CommentController extends Controller
 
   public function store(Request $request)
     {
+
        if($request->file('image_path')->isValid()) {
 
+           $q = \Request::query();
             $posts = new Comment;
 
             $posts->user_id = $request->user_id;
             $posts->post_id = $request->post_id;
-            $posts->area_id = $request->area_id;
             $posts->comment = $request->comment;
 
 
@@ -30,13 +31,16 @@ class CommentController extends Controller
             $posts->image_path = basename($filename);
 
             $posts->save();
-
           }
+
           $posts = Post::latest()->where('id', $posts['post_id'])->get();
-          dd($posts);
-//           $comments = Comment::latest()->where('id', $posts['posts_id'])->get();
-//
-// dd($comments);
-        return view('/show',compact('posts'));
+          $posts->load('comments');
+
+        return view ('/show', [
+
+        'posts' => $posts,
+        'comments' => $posts,
+
+      ]);
       }
 }
