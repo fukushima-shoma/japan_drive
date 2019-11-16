@@ -158,29 +158,33 @@ $(function(){
     @endif
   @else
     <div class="js-modal__btn">
-      <h3 class="comment-form">クチコミ投稿はこちら</h3>
+      <h3 class="comment-botton">クチコミ投稿はこちら</h3>
     </div>
     <div class="js-modal__bg"></div>
-    <div class="js-modal__main">
-      <p>
-        <form action="{{ route('comments.store')}}" method="POST" enctype="multipart/form-data" >
-          {{ csrf_field() }}
-          <div class="form-group">
-            <label for="comment"></label>
-            <textarea class="form-control" rows="5" id="comment" name="comment"　placeholder="思い出や感想・おすすめのポイントをお聞かせください。"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlFile1">写真を投稿する</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image_path">
-          </div>
-          <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <input type="hidden" name="post_id" value="{{ $post->id }}">
-          <input type="hidden" name="area_id" value="{{ $post->area_id }}">
-          <button type="submit" class="btn btn-primary">クチコミする</button>
-        </form>
-      </p>
-      <p class="js-modal__btn--close">close</p>
-      <p class="js-modal__btn--close--fix"></p>
+      <div class="js-modal__main">
+        <div class="comment_form-wapper">
+          <form action="{{ route('comments.store')}}" method="POST" enctype="multipart/form-data" class="comment-form">
+            {{ csrf_field() }}
+            <div class="form-textarea">
+              <label for="comment"></label>
+              <textarea class="form-control" rows="5" id="comment" name="comment"　placeholder="思い出や感想・おすすめのポイントをお聞かせください。"></textarea>
+            </div>
+            <div class="form-picture">
+              <label for="exampleFormControlFile1">写真を投稿する</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image_path">
+            </div>
+            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <input type="hidden" name="area_id" value="{{ $post->area_id }}">
+            <div class="form-botton">
+              <button type="submit" class="btn btn-primary">クチコミする</button>
+            </div>
+          </form>
+        <div class="close">
+          <p class="js-modal__btn--close">close</p>
+          <p class="js-modal__btn--close--fix"></p>
+        </div>
+      </div>
     </div>
   @endguest
   @foreach($posts as $post)
