@@ -124,6 +124,7 @@ class PagesController extends Controller
         $posts = Post::where('title', 'like', "%{$request->search}%")
             ->orWhere('theme', 'like', "%{$request->search}%");
 
+
           $search_result = $request->search. 'の検索結果'.$posts->count().'件';
 
           return view ('area',[

@@ -1,32 +1,3 @@
-<style>
-
-  header{
-    background-color: #333333;
-  }
-
-  .checkbox{
-    width: 100%;
-    height: 120px;
-    padding: 20px;
-    background-color: #EEEEEE;
-  }
-
-
-
-  .checkbox ul li.checkbox_theme{
-    font-size: 15px;
-    color: black;
-    display: inline-flex;
-    text-align: center;
-  }
-
-  .my-big{
-    color: #222222;
-  }
-
-
-</style>
-
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -53,66 +24,68 @@ $(function(){
 
 
 <form class="" action="" method="GET">
-  <div class="checkbox">
+  <div class="checkbox-wrapper">
     <ul>
       <li class="checkbox_theme">
-        <input type="checkbox" name="theme" value="1">
-        <span>
-          <i class="icon-trees my-big"></i>
-          <br>自然・風景
-        </span>
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="1">
+        <label>
+          <i class="icon-trees theme-icon"></i>
+          <p>自然・風景</p>
+        </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" name="theme" value="2">
-        <span>
-          <i class="icon-temple my-big"></i>
-          <br>建物・史跡
-        </span>
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="2">
+        <label>
+          <i class="icon-temple theme-icon"></i>
+          <p>建物・史跡</p>
+        </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" name="theme" value="3">
-        <span>
-          <i class="icon-flowers my-big"></i>
-          <br>公園・植物園
-        </span>
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="3">
+        <label>
+          <i class="icon-flowers theme-icon"></i>
+          <p>公園・植物園</p>
+        </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" name="theme" value="4">
-        <span>
-          <i class="icon-museum my-big"></i>
-          <br>美術館・博物館
-        </span>
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="4">
+        <label>
+          <i class="icon-museum theme-icon"></i>
+          <p>美術館・博物館</p>
+        </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" name="theme" value="5">
-        <span>
-          <i class="icon-cow my-big"></i>
-          <br>テーマパーク
-        </span>
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="5">
+        <label>
+          <i class="icon-cow theme-icon"></i>
+          <p>テーマパーク</p>
+        </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" name="theme" value="6">
-        <span>
-          <i class="icon-onsen my-big"></i>
-          <br>温泉
-        </span>
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="6">
+        <label>
+          <i class="icon-onsen theme-icon"></i>
+          <p>温泉<p>
+        </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" name="theme" value="7">
-        <span>
-          <i class="icon-meal my-big"></i>
-          <br>グルメ
-        </span>
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="7">
+        <label>
+          <i class="icon-meal theme-icon"></i>
+          <p>グルメ</p>
+        </label>
       </li>
     </ul>
   </div>
 
-<div class="saitama_area_map">
-  <picture>
-    <img src="../images/saitama_map.png"  alt="埼玉県の地図" usemap="#saitama-map-clickable">
-  </picture>
+<div id="area-map-wrapper">
+  <div class="area-map">
+    <a>
+      <img id="area-imege" src="../images/saitama_map.png"  alt="埼玉県の地図" usemap="#area-map-clickable">
+    </a>
+  </div>
 
-  <map name="saitama-map-clickable">
+  <map name="area-map-clickable">
     <area target="" alt="三郷市" title="三郷市"  coords="936,436,930,436,924,437,917,438,911,439,905,440,900,441,899,447,900,454,902,461,902,467,905,471,910,474,916,476,919,483,920,490,917,495,911,502,918,501,923,504,921,509,925,514,932,513,937,515,937,508,936,501,935,493,935,484,935,474,937,466,944,466,951,466,952,459,952,452,947,449,941,449,941,434,942,441" shape="poly">
     <area target="" alt="吉川市" title="吉川市" href="" coords="902,375,908,375,914,375,896,381,895,387,901,391,900,397,894,401,890,405,896,409,896,414,897,420,896,430,897,441,905,439,912,437,918,435,926,435,934,435,940,434,939,426,942,420,945,412,944,405,937,403,930,403,927,396,923,390,920,383,920,376" shape="poly">
     <area target="" alt="松伏市" title="松伏市" href="" coords="891,341,884,343,879,346,875,350,871,353,866,364,872,366,877,370,879,375,876,380,869,385,876,388,882,395,893,398,900,394,893,386,895,378,887,374,873,367,876,358,884,359,891,359,899,359" shape="poly">

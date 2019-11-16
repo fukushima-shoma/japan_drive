@@ -19,64 +19,64 @@
 
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-    <!-- <link href="{{ asset('css/common.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
 <body>
-  <header>
-
-    <div class="navbar-nav ">
-      <div class="navbar-nav-item">
-        <a class="navbar-link" href="/sightseeing">ホーム</a>
-      </div>
-      <div class="navbar-nav-item">
-        <form action="{{ route('pages.search') }}" method="get">
-            {{ csrf_field() }}
-          <input type="text" class="form-control input-lg" placeholder="キーワード検索" name="search" value="">
-          <span class="input-group-btn">
-              <button class="" type="submit">
-                  <i class="fas fa-search"></i>
-              </button>
-          </span>
-        </form>
-      </div>
-      <!-- ログイン -->
-      @guest
-      <div class="navbar-nav-item">
-        <a class="nav-link-login" href="{{ route('login') }}">ログイン</a>
-      </div>
-      @if (Route::has('register'))
-      <div class="navbar-nav-item">
-        <a class="nav-link-register" href="{{ route('register') }}">会員登録</a>
-      </div>
-      @endif
-      @else
-      <div class="navbar-nav-item dropdown">
-
-
-
-
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">ログアウト
-          </a>
-
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
+  <div id="wrapper">
+    <header>
+      <div id="navbar">
+        <div class="navbar-items">
+          <a class="nav-link" href="/sightseeing">ホーム</a>
+        </div>
+        <div class="navbar-items">
+          <form action="{{ route('pages.search') }}" method="get" class="nav-search">
+              {{ csrf_field() }}
+            <input type="text" class="nav-link" placeholder="キーワード検索" name="search" value="">
+            <button class="nav-link" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
           </form>
         </div>
+
+        <!-- ログイン -->
+        @guest
+        <div class="navbar-items">
+          <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+        </div>
+        @if (Route::has('register'))
+        <div class="navbar-items">
+          <a class="nav-link" href="{{ route('register') }}">会員登録</a>
+        </div>
+        @endif
+        @else
+          <ul class="navbar-dropmenu">
+            <li>
+              <a href="#">
+                  {{ Auth::user()->name }}さん
+              </a>
+                <ul>
+                  <li>
+                    <a  href="{{ route('logout') }}">ログアウト</a>
+                    <form  action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
+                  </li>
+                </ul>
+            </li>
+          </ul>
+        @endguest
       </div>
-      @endguest
-    </div>
+    </header>
 
+    <main>
+                  @yield('content')
+    </main>
 
-  </header>
+    <footer>
 
-  <main>
-                @yield('content')
-  </main>
-
+    </footer>
+  </div>
 </body>
 </html>

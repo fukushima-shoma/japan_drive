@@ -1,91 +1,248 @@
-html {
-  font-family: sans-serif;
-  line-height: 1;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+main #wrapper {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
-
-
 
 body {
-  margin: 0;
   font-family: "Nunito", sans-serif;
   font-weight: 100%;
-  width: 100%;
+  width: auto;
+  margin: 0px;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
 }
 
-
+/* header */
 
 header{
-  width: 100%;
-  height: 60px;
-  background-color: #333333;
-  font-size: 20px;
+  width: auto;
+  height: 50px;
+  background: #333333;
+  margin: 0px;
+
 }
 
-header .navbar-nav{
+#navbar{
   width: 100%;
-  height: 60px;
+  height: 50px;
   display: flex;
-  align-content: center;
+  justify-content: flex-end;
 }
 
 
-header .navbar-nav-item{
-  width: 20%;
-  height: 60px;
+div.navbar-items{
+  width: 12%;
+  height: 50px;
   justify-content: center;
+  position: relative;
 }
 
 
-
-.nav-link{
+a.nav-link{
   text-decoration: none;
-  text-align: center;
-  align-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
 	color: white;
-	font-size: 13px;
-  width: 120px;
-}
-nav a:hover{
-	opacity: .5;
-	transition: .3s;
+	font-size: 18px;
 }
 
-main{
-  width: 100%;
-  height: 600px;
-}
-
-
-
-.chapternav-items{
+form.nav-search{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
   display: flex;
   justify-content: center;
+}
+
+input.nav-link{
+  height: 30px;
+  width: 140px;
+  font-size: 14px;
+}
+
+button.nav-link{
+  background: #333333;
+  border-color: #333333;
+}
+
+
+.navbar-dropmenu{
+  *zoom: 1;
+  list-style-type: none;
+  width: 12%;
+  height: 50px;
+  padding: 0;
+  background: #333333;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
+.navbar-dropmenu, .navbar-dropmenu:after{
+  content: "";
+  display: table;
+}
+
+.navbar-dropmenu:after{
+  clear: both;
+}
+
+.navbar-dropmenu li{
+  position: relative;
   width: 100%;
-  height: 100px;
-}
-
-.chapternav-item{
-  display: block;
-  width: 120px;
-  height: 100px;
-}
-
-.chapternav-link{
-  text-decoration: none;
-  font-size: 15px;
-  height: 100px;
-  width: 100px;
-}
-
-.chapternav-label{
-  display: block;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
-.my-big{
+.navbar-dropmenu li a{
+  display: block;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  padding: 15px 0 11px;
+  background: #333333;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.navbar-dropmenu li ul{
+  list-style: none;
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar-dropmenu li ul li{
+  width: 100%;
+  overflow: hidden;
+  height: 0;
+  transition: .2s;
+}
+
+.navbar-dropmenu li ul li a{
+  background: #333333;
+  text-align: center;
+}
+
+.navbar-dropmenu li:hover > a{
+  background: #222222;
+}
+
+.navbar-dropmenu li a:hover{
+  background: #222222;
+}
+
+.navbar-dropmenu li:hover ul li{
+  overflow: visible;
+  height: 38px;
+}
+
+
+/* theme-checkbox */
+
+.checkbox-wrapper{
+  width: auto;
+  height: 120px;
+  padding: 20px;
+  background: #EEEEEE;
+}
+
+.checkbox-wrapper ul{
+  max-width: 80%;
+  display: flex;
+  align-content: center;
+  margin-left: 9%;
+  margin-top: 0px;
+}
+
+.checkbox-wrapper ul li{
+  align-content: center;
+}
+
+label {
+margin: 0px,5px; /* ラベル外側の余白を指定する */
+cursor: pointer;
+align-items: center;
+}
+
+
+li.checkbox_theme{
+  width: 12%;
+  font-size: 15px;
+  color: black;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+li.checkbox_theme label{
+  width: 80%;
+  padding-top: 8px;
+}
+
+li.checkbox_theme label i{
+  color: #222222;
+}
+
+i.fas{
+  margin-top: 5px;
+  color: white;
+  font-size: 17px;
+}
+
+i.theme-icon{
   font-size: 4em;
   display: block;
   text-align: center;
+}
+
+
+/* area-map */
+
+#area-map-wrapper{
+  width: 100%;
+  height: 740px;
+  display: flex;
+  background: #FFFAFA;
+}
+
+.area-map{
+  width: 100%;
+  height: 740px;
+  margin: 0;
+}
+
+.area-map img{
+  max-width:100%;
+  float: right;
+  margin-top: 50px;
+  margin-right: 25%;
+  width:auto;
+  height: auto;
+  align-content: center;
+}
+
+
+/* footer */
+footer{
+  margin-top: auto;
+  width: 100%;
+  height: 40px;
+  background: #333333;
 }
