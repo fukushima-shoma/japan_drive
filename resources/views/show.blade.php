@@ -205,7 +205,24 @@ $(function(){
 
 
 <div id="container">
-  <div id="topickpath">
+
+  <ul class="breadcrumb">
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a href="https://saruwakakun.com" itemprop="url">
+     <span itemprop="title">ホーム</span>
+    </a>
+    </li>
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a href="https://saruwakakun.com/html-css" itemprop="url">
+     <span itemprop="title">HTML&amp;CSS</span>
+    </a>
+    </li>
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a href="https://saruwakakun.com/html-css/basic" itemprop="url">
+     <span itemprop="title">Webデザイン入門</span>
+    </a>
+    </li>
+  </ul>  <div id="topickpath">
 
         <a href="/sightseeing">トップ</a>
         ＞

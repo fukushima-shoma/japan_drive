@@ -14,7 +14,7 @@ class PostsTableSeeder extends Seeder
         DB::table('posts')->insert([
           [
             'title' => '杉戸天然温泉 雅楽の湯',
-            'theme' => '自然,綺麗',
+            'theme' => '自然,景色',
             'category_id' => 1,
             'area_id' => 62,
             'zip' => '345-0036',

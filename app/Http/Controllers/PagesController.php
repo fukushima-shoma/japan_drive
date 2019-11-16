@@ -121,8 +121,8 @@ class PagesController extends Controller
 
     public function search(Request $request){
 
-        $posts = Post::where('title', 'like', "%{$request->search}%")
-            ->orWhere('theme', 'like', "%{$request->search}%");
+        $posts = Post::where('title', 'like', '%' .$request->search. '%')
+            ->orWhere('theme', 'like', '%' .$request->search. '%')->get();
 
 
           $search_result = $request->search. 'の検索結果'.$posts->count().'件';

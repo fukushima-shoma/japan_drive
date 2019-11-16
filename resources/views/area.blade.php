@@ -1,39 +1,85 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+jQuery(function($) {
+  $('.content').each(function() {
+    var $target = $(this);
 
+    // オリジナルの文章を取得する
+    var html = $target.html();
+
+    // 対象の要素を、高さにautoを指定し非表示で複製する
+    var $clone = $target.clone();
+    $clone
+      .css({
+        display: 'none',
+        position : 'absolute',
+        overflow : 'visible'
+      })
+      .width($target.width())
+      .height('auto');
+
+    // DOMを一旦追加
+    $target.after($clone);
+
+    // 指定した高さになるまで、1文字ずつ消去していく
+    while((html.length > 0) && ($clone.height() > $target.height())) {
+      html = html.substr(0, html.length - 1);
+      $clone.html(html + '...');
+    }
+
+    // 文章を入れ替えて、複製した要素を削除する
+    $target.html($clone.html());
+    $clone.remove();
+  });
+});
+</script>
 
 @extends('layouts.app')
 
 @section('content')
 
+<div id="area_blade">
 
-<div id="container">
+@if(isset($posts[0]))
+  <ul class="breadcrumb">
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a href="/sightseeing" itemprop="url">
+     <span itemprop="title" >ホーム</span>
+    </a>
+    </li>
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a>
+     <span itemprop="title">{{ $posts[0]->area_id }}</span>
+    </a>
+    </li>
+  </ul>
+@endif
 
-  @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-  @endif
-
-  <div id="topickpath">
-
-        <a href="/sightseeing">トップ</a>
-        ＞
-        <a>{{ $posts[0]->area_id }}</a>
-
-  </div>
 
   @isset($search_result)
-  <h5 class="card-title">{{ $search_result }}</h5>
+  <h5 class="resurch_result">{{ $search_result }}</h5>
   @endisset
 
   @foreach($posts as $post)
         <div class="card">
-          <div class="card-body">
+          <div class="card-left">
             <img class="card-photo" src="{{ asset('public/image/'.$post->image_path1) }}">
-            <h5 class="card-title">{{ $post->title }}</h5>
-            <h5 class="card-theme">{{ $post->theme}}</h5>
-            <h5 class="card-content">{{ $post->content }}</h5>
-            <a href="{{ route('pages.show', 'id='.$post->id) }}" class="card-detail">詳細</a>
           </div>
+          <div class="card-right">
+            <div class=card-title>
+              <p class="title">{{ $post->title }}</p>
+            </div>
+            <div class=card-theme>
+              <p class="theme">{{ $post->theme}}</p>
+            </div>
+            <div class=card-content>
+              <p class="content">
+                {{ $post->content }}
+              </p>
+            </div>
+            <div class=card-detail>
+              <a href="{{ route('pages.show', 'id='.$post->id) }}" class="detail">詳細</a>
+            </div>
         </div>
   @endforeach
 
