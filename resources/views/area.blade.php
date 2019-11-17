@@ -49,7 +49,7 @@ jQuery(function($) {
     </li>
     <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
     <a>
-     <span itemprop="title">{{ $posts[0]->area_id }}</span>
+     <span itemprop="title">{{ $posts[0]->area_name }}</span>
     </a>
     </li>
   </ul>

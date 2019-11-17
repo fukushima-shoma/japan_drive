@@ -106,6 +106,8 @@ button.nav-link{
   margin: 0;
   padding: 0;
   display: inline-block;
+   text-overflow: ellipsis;
+   white-space: nowrap;
 }
 
 .navbar-dropmenu li a{
@@ -137,6 +139,7 @@ button.nav-link{
   overflow: hidden;
   height: 0;
   transition: .2s;
+
 }
 
 .navbar-dropmenu li ul li a{
@@ -353,6 +356,13 @@ p.content{
 
 /* show.blade */
 
+#container{
+  width: auto;
+  height: auto;
+  margin: 0;
+  margin-top: 0px;
+}
+
 .info_header{
   width: 70%;
   height: 250px;
@@ -504,6 +514,7 @@ table td{
   padding: 10px;
 }
 
+/* クチコミ投稿ボタン */
 h3.comment-botton{
   width: 200px;
   text-align: center;
@@ -517,6 +528,39 @@ h3.comment-botton{
   margin-left: 35%;
 }
 
+/* 非ログイン時ボタン */
+
+.non-login{
+  width: 60%;
+  margin-left: 14%;
+  margin-top: 20px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+}
+.login-card {
+  width: 40%;
+  height: 80px;
+  color: #FFF;
+  background: #555;
+  border-bottom: solid 6px #222222;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  margin: 10px;
+  text-align: center;
+}
+
+p.login-card-text{
+  margin-top: 30px;
+}
+
+.login-card-text a{
+  font-size: 17px;
+  color: white;
+}
+
+
+/* クチコミフォーム */
 form.comment-form{
   width: 100%;
   text-align: center;
@@ -550,6 +594,7 @@ form.comment-form{
   margin-top: 20px;
 }
 
+/* コメントカード */
 h3.comment-card{
   margin-left: 14%;
   text-align: center;
@@ -592,6 +637,7 @@ h3.comment-card{
 .comment-right h3{
   margin: 0;
 }
+
 
 /* modal */
 
@@ -765,9 +811,11 @@ ul.forecast-list li{
   background: radial-gradient(#E0FFFF, #FFF);
 }
 
-.modal__content a{
-  text-align: right;
+a.js-modal-close {
+  font-size: 16px;
+  color: black;
 }
+
 
 
 
@@ -779,6 +827,8 @@ footer{
   background: #333333;
   bottom: 0px;
 }
+
+
 
 
 /* login $ register */

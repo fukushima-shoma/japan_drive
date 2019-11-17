@@ -56,7 +56,7 @@ $(function(){
       </li>
       <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
         <a>
-         <span itemprop="title">{{ $posts[0]->area_id }}</span>
+         <span itemprop="title">{{ $posts[0]->area_name }}</span>
         </a>
       </li>
       <li itemscope="itemscope">
@@ -152,54 +152,68 @@ $(function(){
   </div>
   @guest
     @if (Route::has('register'))
-      ユーザー登録をしてクチコミ投稿しよう
-      <a href="{{ route('register') }}">登録はこちらから</a>
-      <a href="{{ route('login') }}">すでに登録された方はこちら</a>
-    @endif
-  @else
-    <div class="js-modal__btn">
-      <h3 class="comment-botton">クチコミ投稿はこちら</h3>
-    </div>
-    <div class="js-modal__bg"></div>
-      <div class="js-modal__main">
-        <div class="comment_form-wapper">
-          <form action="{{ route('comments.store')}}" method="POST" enctype="multipart/form-data" class="comment-form">
-            {{ csrf_field() }}
-            <div class="form-textarea">
-              <label for="comment"></label>
-              <textarea class="form-control" rows="5" id="comment" name="comment" placeholder="思い出や感想・おすすめのポイントをお聞かせください。"></textarea>
-            </div>
-            <div class="form-picture">
-              <label for="exampleFormControlFile1">写真を投稿する</label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image_path">
-            </div>
-            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-            <input type="hidden" name="post_id" value="{{ $param['id'] }}">
-            <input type="hidden" name="area_id" value="{{ $post->area_id }}">
-            <div class="form-botton">
-              <button type="submit" class="btn btn-primary">クチコミする</button>
-            </div>
-          </form>
-        <div class="close">
-          <p class="js-modal__btn--close">close</p>
-          <p class="js-modal__btn--close--fix"></p>
+      <p class="comment-card">ユーザー登録をしてクチコミ投稿しよう!!</p>
+      <div class="non-login">
+        <div class="login-card">
+          <p class="login-card-text">
+            <a href="{{ route('register') }}">登録はこちらから</a>
+          </p>
+        </div>
+        <div class="login-card">
+          <p class="login-card-text">
+            <a href="{{ route('login') }}">すでに登録された方はこちら</a>
+          </p>
         </div>
       </div>
-    </div>
-  @endguest
-    <h3 class="comment-card">みんなのクチコミ</h3>
-    @foreach($comments as $comment)
-      <div class="comment-card">
-        <div class="comment-left">
-          <img src="{{ asset('storage/image/'.$comment->image_path) }}">
-        </div>
-        <div class="comment-right">
-          <h3 class="card-text">
-            投稿者:{{ $comment->users->name }}
-          </h3>
-          <p class="card-text">{{ $comment->comment }}</p>
+      @endif
+    @else
+      <div class="js-modal__btn">
+        <h3 class="comment-botton">クチコミ投稿はこちら</h3>
+      </div>
+      <div class="js-modal__bg"></div>
+        <div class="js-modal__main">
+          <div class="comment_form-wapper">
+            <form action="{{ route('comments.store')}}" method="POST" enctype="multipart/form-data" class="comment-form">
+              {{ csrf_field() }}
+              <div class="form-textarea">
+                <label for="comment"></label>
+                <textarea class="form-control" rows="5" id="comment" name="comment" placeholder="思い出や感想・おすすめのポイントをお聞かせください。"></textarea>
+              </div>
+              <div class="form-picture">
+                <label for="exampleFormControlFile1">写真を投稿する</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image_path">
+              </div>
+              <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+              <input type="hidden" name="post_id" value="{{ $param['id'] }}">
+              <input type="hidden" name="area_id" value="{{ $post->area_id }}">
+              <div class="form-botton">
+                <button type="submit" class="btn btn-primary">クチコミする</button>
+              </div>
+            </form>
+          <div class="close">
+            <p class="js-modal__btn--close">close</p>
+            <p class="js-modal__btn--close--fix"></p>
+          </div>
         </div>
       </div>
-    @endforeach
-    {{ $comments->appends($param)->links() }}
-@endsection
+    @endguest
+      <h3 class="comment-card">みんなのクチコミ</h3>
+      @foreach($comments as $comment)
+        <div class="comment-card">
+          <div class="comment-left">
+            @if(isset($comment->image_path))
+            <img src="{{ asset('storage/image/'.$comment->image_path) }}">
+            @else
+            <img src="{{ asset('images/noimage.jpg') }}">
+            @endif
+          </div>
+          <div class="comment-right">
+            <h3 class="card-text">
+              投稿者:{{ $comment->users->name }}
+            </h3>
+            <p class="card-text">{{ $comment->comment }}</p>
+          </div>
+        </div>
+      @endforeach
+      {{ $comments->appends($param)->links() }}
+  @endsection

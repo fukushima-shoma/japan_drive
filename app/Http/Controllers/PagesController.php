@@ -21,8 +21,8 @@ class PagesController extends Controller
       $q = \Request::query();
 
       if(isset($q['area_id'])){
-        $query = Post::latest()->where('area_id', $q['area_id']);
-
+        $query = Post::select(['posts.*', 'areas.area_name'])->where('area_id', $q['area_id'])
+          ->join('areas', 'areas.id', '=', 'posts.area_id');
         // テーマがチェックされているか判定
         if(isset($q['theme'])){
           if(count($q['theme']) == 1){
@@ -35,10 +35,12 @@ class PagesController extends Controller
             });
           }
           $posts = $query->paginate(5);
-          return view ('area',compact('posts'));
+          $search_result = '該当件数 '.$posts->total().'件中'.$posts->firstItem().'件～'.$posts->lastItem().'件表示';
+          return view ('area',compact('posts'), ['search_result' => $search_result]);
         } else {
             $posts = $query->paginate(5);
-            return view ('area',compact('posts'));
+            $search_result = '該当件数 '.$posts->total().'件中'.$posts->firstItem().'件～'.$posts->lastItem().'件表示';
+            return view ('area',compact('posts'), ['search_result' => $search_result]);
         }
     }else{
       return view ('/sightseeing');
@@ -135,16 +137,14 @@ class PagesController extends Controller
     public function search(Request $request){
 
         $posts = Post::where('title', 'like', '%' .$request->search. '%')
-            ->orWhere('theme', 'like', '%' .$request->search. '%')->paginate(5);
+            ->orWhere('theme', 'like', '%' .$request->search. '%')->paginate(3);
+        $search_result = $request->search. 'の検索結果 '.$posts->total().'件中'.$posts->firstItem().'件～'.$posts->lastItem().'件表示';
 
-
-          $search_result = $request->search. 'の検索結果'.$posts->count().'件';
-
-          return view ('area',[
-            'posts' => $posts,
-            'search_result' => $search_result,
-            'search_query' => $request->search,
-          ]);
+        return view ('area',[
+          'posts' => $posts,
+          'search_result' => $search_result,
+          'search_query' => $request->search,
+        ]);
     }
 
 }
