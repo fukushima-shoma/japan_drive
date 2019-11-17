@@ -187,20 +187,19 @@ $(function(){
       </div>
     </div>
   @endguest
-  @foreach($posts as $post)
     <h3 class="comment-card">みんなのクチコミ</h3>
-    @foreach($post->comments as $comment)
+    @foreach($comments as $comment)
       <div class="comment-card">
         <div class="comment-left">
           <img src="{{ asset('storage/image/'.$comment->image_path) }}">
         </div>
         <div class="comment-right">
           <h3 class="card-text">
-            投稿者:{{ $comment->users->name }}
+            投稿者:{{ $comment->name }}
           </h3>
           <p class="card-text">{{ $comment->comment }}</p>
         </div>
       </div>
     @endforeach
-  @endforeach
+    {{ $comments->appends($param)->links() }}
 @endsection

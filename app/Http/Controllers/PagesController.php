@@ -4,23 +4,45 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Comment;
 use App\ShowService;
+use DB;
 
 class PagesController extends Controller
 {
 
+
+    public function top(){
+      return redirect(route('pages.index'));
+    }
 
     public function index(Request $request){
 
       $q = \Request::query();
 
       if(isset($q['area_id'])){
-        $posts = Post::latest()->where('area_id', $q['area_id'])->get();
+        $query = Post::latest()->where('area_id', $q['area_id']);
 
+        // テーマがチェックされているか判定
+        if(isset($q['theme'])){
+          if(count($q['theme']) == 1){
+            $query->where('theme', 'like', '%'.$q['theme'][0].'%');
+          }else{
+            $query->where(function($query)use($q){
+              for($i = 0; $i < count($q['theme']); $i++){
+                $query->orWhere('theme', 'like', '%'.$q['theme'][$i].'%');
+              }
+            });
+          }
+          $posts = $query->paginate(5);
           return view ('area',compact('posts'));
-      } else {
-              return view ('/sightseeing');
-      }
+        } else {
+            $posts = $query->paginate(5);
+            return view ('area',compact('posts'));
+        }
+    }else{
+      return view ('/sightseeing');
+    }
 
     }
 
@@ -30,7 +52,8 @@ class PagesController extends Controller
         $q = \Request::query();
 
         $posts = Post::latest()->where('id', $q['id'])->get();
-        $posts->load('comments', 'comments.users');
+        $comments = Comment::latest()->where('post_id', $q['id'])->orderBy('id', 'desc')->paginate(3);
+        $comments->load('users');
 
         // エリアリスト
         $areas = array(
@@ -110,19 +133,23 @@ class PagesController extends Controller
           'now_humidity' =>   $now_humidity
         );
 
-
-            return view ('show',[
-              'posts' => $posts,
-              'weather_info' => $weather_info,
-              'forecast_array_list' => $forecast_array_list
-            ]);
+        $param = array(
+          'id' => $q['id']
+        );
+        return view ('show',[
+          'posts' => $posts,
+          'comments' => $comments,
+          'param' => $param,
+          'weather_info' => $weather_info,
+          'forecast_array_list' => $forecast_array_list
+        ]);
 
     }
 
     public function search(Request $request){
 
         $posts = Post::where('title', 'like', '%' .$request->search. '%')
-            ->orWhere('theme', 'like', '%' .$request->search. '%')->get();
+            ->orWhere('theme', 'like', '%' .$request->search. '%')->paginate(5);
 
 
           $search_result = $request->search. 'の検索結果'.$posts->count().'件';

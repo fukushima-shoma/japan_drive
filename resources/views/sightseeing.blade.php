@@ -6,7 +6,7 @@ $(function(){
   $('area').on('click',function(){
     var url = "/area?area_id=" + $(this).attr('alt');
     $(":checkbox:checked").each(function() {
-        url = url + "&theme=" + $(this).val();
+        url = url + "&theme[]=" + $(this).val();
     });
     window.location.href=url;
 });
@@ -27,49 +27,49 @@ $(function(){
   <div class="checkbox-wrapper">
     <ul>
       <li class="checkbox_theme">
-        <input type="checkbox" class="checkbox_hidden" name="theme" value="1">
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="自然・風景">
         <label>
           <i class="icon-trees theme-icon"></i>
           <p>自然・風景</p>
         </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" class="checkbox_hidden" name="theme" value="2">
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="建物・史跡">
         <label>
           <i class="icon-temple theme-icon"></i>
           <p>建物・史跡</p>
         </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" class="checkbox_hidden" name="theme" value="3">
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="公園・植物園">
         <label>
           <i class="icon-flowers theme-icon"></i>
           <p>公園・植物園</p>
         </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" class="checkbox_hidden" name="theme" value="4">
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="美術館・博物館">
         <label>
           <i class="icon-museum theme-icon"></i>
           <p>美術館・博物館</p>
         </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" class="checkbox_hidden" name="theme" value="5">
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="テーマパーク">
         <label>
           <i class="icon-cow theme-icon"></i>
           <p>テーマパーク</p>
         </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" class="checkbox_hidden" name="theme" value="6">
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="温泉">
         <label>
           <i class="icon-onsen theme-icon"></i>
           <p>温泉<p>
         </label>
       </li>
       <li class="checkbox_theme">
-        <input type="checkbox" class="checkbox_hidden" name="theme" value="7">
+        <input type="checkbox" class="checkbox_hidden" name="theme" value="グルメ">
         <label>
           <i class="icon-meal theme-icon"></i>
           <p>グルメ</p>
@@ -100,7 +100,18 @@ $(function(){
     <area target="" alt="さいたま市" title="さいたま市" href="" coords="784,309,785,315,794,316,793,328,783,331,764,334,754,339,749,345,745,358,739,352,733,356,724,343,715,347,704,348,712,366,697,362,685,367,683,377,677,371,672,372,674,389,679,402,676,406,681,416,673,418,682,424,683,430,694,430,701,440,726,442,725,454,719,456,720,462,727,464,737,471,746,469,753,466,761,471,767,467,772,463,770,451,780,454,790,440,798,444,803,439,803,425,814,428,818,423,824,409,829,408,829,394,824,390,824,380,831,370,823,355,814,351,804,354,804,348,797,340,806,337,807,325,795,313" shape="poly">
     <area target="" alt="蕨市" title="蕨市" href="" coords="767,467,784,471,796,471,795,484,788,484,767,484,766,477,762,472" shape="poly">
     <area target="" alt="戸田市" title="戸田市" href="" coords="728,472,729,476,731,486,741,487,750,501,790,501,789,487,765,486,766,479,753,467,747,471,736,469" shape="poly">
-
+    <area target="" alt="久喜市" title="久喜市" href="" coords="792,172,777,179,778,193,771,194,761,200,764,208,749,212,744,228,738,233,713,229,708,240,702,237,694,242,682,242,686,254,681,257,684,266,690,275,703,283,715,276,718,265,736,267,751,277,757,271,753,265,761,266,767,269,779,268,777,254,788,257,794,242,786,237,781,228,785,227,788,217,797,214,802,216,804,208,808,206,801,189" shape="poly">
+    <area target="" alt="白岡市" title="白岡市" href="" coords="719,265,719,271,716,275,731,283,749,280,746,284,746,296,760,299,770,310,780,306,794,312,798,304,789,304,789,285,781,283,776,270,766,269,761,265,757,266,759,270,752,277,735,269" shape="poly">
+    <area target="" alt="蓮田市" title="蓮田市" href="" coords="706,282,722,293,730,297,747,299,745,315,747,319,744,338,750,344,755,343,754,339,762,333,783,332,793,326,793,315,784,312,780,306,771,310,758,299,747,298,745,281,730,282,718,275" shape="poly">
+    <area target="" alt="伊奈町" title="伊奈町" href="" coords="709,285,702,303,702,312,717,312,729,332,744,337,747,320,744,313,746,300,728,298,722,293" shape="poly">
+    <area target="" alt="和光市" title="和光市" href="" coords="740,486,738,501,720,501,711,519,712,525,729,528,732,522,762,522,762,507,737,507,747,500" shape="poly">
+    <area target="" alt="朝霞市" title="朝霞市" href="" coords="730,476,698,475,695,479,692,501,699,516,704,512,705,517,710,519,720,502,738,502,739,489,729,486" shape="poly">
+    <area target="" alt="志木市" title="志木市" href="" coords="695,455,695,462,682,463,683,470,678,473,679,476,685,481,699,476,728,477,728,464,718,463,714,460,711,454,698,453" shape="poly">
+    <area target="" alt="新座市" title="新座市" href="" coords="695,478,686,481,678,476,674,480,666,479,668,484,668,491,673,495,666,505,670,511,656,512,655,524,650,529,673,526,673,539,698,525,705,517,705,513,698,514,693,499" shape="poly">
+    <area target="" alt="富士見市" title="富士見市" href="" coords="682,429,681,436,662,436,651,439,647,444,662,440,657,452,660,458,674,467,676,473,683,470,682,462,696,463,691,459,694,455,724,455,725,443,700,441,694,432" shape="poly">
+    <area target="" alt="ふじみ野市" title="ふじみ野市" href="" coords="650,412,645,422,619,422,618,435,633,436,614,446,620,448,629,447,625,452,626,458,631,452,643,453,646,456,652,458,662,440,647,444,653,435,678,434,680,424,656,422,655,413" shape="poly">
+    <area target="" alt="三芳町" title="三芳町" href="" coords="630,452,623,463,630,473,630,479,639,482,648,480,673,479,674,468,660,459,659,453,656,453,654,459,645,457,643,452" shape="poly">
+</map>
   </map>
 
 

@@ -15,6 +15,7 @@
 
 Auth::routes();
 
+Route::get('/', 'PagesController@top');
 Route::get('/sightseeing', 'PagesController@index')->name('pages.index');
 Route::get('/show', 'PagesController@show')->name('pages.show');
 Route::get('/area', 'PagesController@index');

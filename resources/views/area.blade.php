@@ -38,22 +38,22 @@ jQuery(function($) {
 
 @section('content')
 
-  <div id="area_blade">
+<div id="area_blade">
 
-  @if(isset($posts[0]))
-    <ul class="breadcrumb">
-      <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-      <a href="/sightseeing" itemprop="url">
-       <span itemprop="title" >ホーム</span>
-      </a>
-      </li>
-      <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-      <a>
-       <span itemprop="title">{{ $posts[0]->area_id }}</span>
-      </a>
-      </li>
-    </ul>
-  @endif
+@if(isset($posts[0]))
+  <ul class="breadcrumb">
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a href="/sightseeing" itemprop="url">
+     <span itemprop="title" >ホーム</span>
+    </a>
+    </li>
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+    <a>
+     <span itemprop="title">{{ $posts[0]->area_id }}</span>
+    </a>
+    </li>
+  </ul>
+@endif
 
 
   @isset($search_result)
@@ -80,10 +80,18 @@ jQuery(function($) {
             <div class=card-detail>
               <a href="{{ route('pages.show', 'id='.$post->id) }}" class="detail">詳細</a>
             </div>
+          </div>
         </div>
   @endforeach
 
-</div>
+
+
+@if(isset($search_query))
+    {{ $posts->appends(['search' => $search_query])->links() }}
+
+@else
+    {{ $posts->appends(request()->query())->links() }}
+@endif
 
 
 @endsection
