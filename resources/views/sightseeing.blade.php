@@ -1,5 +1,6 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/jquery.rwdImageMaps.js"></script>
 <script type="text/javascript">
 
 $(function(){
@@ -12,6 +13,8 @@ $(function(){
 });
 
 });
+
+jQuery( 'img[src="../images/saitama_map.png"]' ).rwdImageMaps();
 
 </script>
 

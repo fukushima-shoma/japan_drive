@@ -18,7 +18,7 @@ class PostsTable extends Migration
       $table->string('title')->nullable();
       $table->text('theme')->nullable();
       $table->Integer('category_id')->unsigned()->index();
-      $table->Integer('area_id')->unsigned()->index();
+      $table->bigInteger('area_id')->unsigned()->index();
       $table->string('zip')->nullable();
       $table->string('prefecture')->nullable();
       $table->string('address')->nullable();
@@ -31,6 +31,7 @@ class PostsTable extends Migration
       $table->Integer('likes_count')->unsigned()->index();
       $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
       $table->timestamp('updated_at')->nullable()->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+      $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
     });
     }
 

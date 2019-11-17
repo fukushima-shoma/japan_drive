@@ -51,35 +51,21 @@ class PagesController extends Controller
     public function show(Request $request)  {
         $q = \Request::query();
 
-        $posts = Post::latest()->where('id', $q['id'])->get();
+        $posts = Post::select()
+          ->join('areas', 'areas.id', '=', 'posts.area_id')
+          ->where('posts.id', $q['id'])
+          ->get();
         $comments = Comment::latest()->where('post_id', $q['id'])->orderBy('id', 'desc')->paginate(3);
         $comments->load('users');
 
-        // エリアリスト
-        $areas = array(
-            1850144 => '東京都',
-            6940394 => '埼玉県（さいたま市）',
-            2130404 => '北海道（江別市）',
-            1856035 => '沖縄県（那覇市）',
-            1853909 => '大阪府（大阪市）'
-        );
-        // メイン処理
-        try {
-            if( isset($_GET['area']) ){
-                if( !array_key_exists($_GET['area'], $areas) ){
-                    throw new Exception('不正なパラメーターです。 セレクトボックスから選択してください。');
-                }
-            }
-          }catch( Exception $e){
-
-            }
-
-        // ID
-        // $area_id =  '1850144';
         $service = new ShowService();
 
+        // 緯度
+        $latitude = $posts[0]['latitude'];
+        // 経度
+        $longitude = $posts[0]['longitude'];
         // 5日間天気
-        $response = $service->getWeather('forecast', 36.025851, 139.736743);
+        $response = $service->getWeather('forecast', $latitude, $longitude);
 
         $weather_list = $response['list']; // list配下
 
@@ -117,7 +103,7 @@ class PagesController extends Controller
 
 
         // 現在の天気
-        $response_now = $service->getWeather('weather', 36.025851, 139.736743);
+        $response_now = $service->getWeather('weather', $latitude, $longitude);
 
         $now_des = $service->getTranslation($response_now['weather'][0]['description']); // 現在の天気説明
 
