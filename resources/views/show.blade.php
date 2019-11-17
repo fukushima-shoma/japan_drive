@@ -45,7 +45,7 @@ $(function(){
 
 </script>
 @extends('layouts.app')
-
+​
 @section('content')
   <div id="container">
     <ul class="breadcrumb">
@@ -167,14 +167,14 @@ $(function(){
             {{ csrf_field() }}
             <div class="form-textarea">
               <label for="comment"></label>
-              <textarea class="form-control" rows="5" id="comment" name="comment"　placeholder="思い出や感想・おすすめのポイントをお聞かせください。"></textarea>
+              <textarea class="form-control" rows="5" id="comment" name="comment" placeholder="思い出や感想・おすすめのポイントをお聞かせください。"></textarea>
             </div>
             <div class="form-picture">
               <label for="exampleFormControlFile1">写真を投稿する</label>
               <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image_path">
             </div>
             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <input type="hidden" name="post_id" value="{{ $param['id'] }}">
             <input type="hidden" name="area_id" value="{{ $post->area_id }}">
             <div class="form-botton">
               <button type="submit" class="btn btn-primary">クチコミする</button>
@@ -195,7 +195,7 @@ $(function(){
         </div>
         <div class="comment-right">
           <h3 class="card-text">
-            投稿者:{{ $comment->name }}
+            投稿者:{{ $comment->users->name }}
           </h3>
           <p class="card-text">{{ $comment->comment }}</p>
         </div>

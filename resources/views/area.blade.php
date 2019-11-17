@@ -60,6 +60,11 @@ jQuery(function($) {
   <h5 class="resurch_result">{{ $search_result }}</h5>
   @endisset
 
+  @if(count($posts) == 0)
+    <p>まだお探しの条件に合致するスポットが登録されていません。</p>
+    <a href="{{ route('pages.index') }}">ホームへ戻る</a>
+  @endif
+
   @foreach($posts as $post)
         <div class="card">
           <div class="card-left">
@@ -88,7 +93,6 @@ jQuery(function($) {
 
 @if(isset($search_query))
     {{ $posts->appends(['search' => $search_query])->links() }}
-
 @else
     {{ $posts->appends(request()->query())->links() }}
 @endif

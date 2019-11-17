@@ -608,7 +608,7 @@ h3.comment-card{
 }
 .js-modal__main {
   width: calc(100% - 32px);
-  height: 70%;
+  height: 80%;
   padding: 16px;
   bottom: -81%;
   left: 0;
@@ -617,6 +617,10 @@ h3.comment-card{
   position: fixed;
   z-index: 11;
   opacity: 0;
+}
+.js-modal__main p{
+  margin: 0;
+  margin-bottom: 30px;
 }
 .js-modal__btn {
     color:#76952f;
@@ -689,6 +693,7 @@ animation: SlideUp .5s ease-in-out forwards;
 animation: SlideDown .5s ease-in-out forwards;
 }
 
+
 .content{
     margin: 0 auto;
     padding: 40px;
@@ -717,7 +722,10 @@ animation: SlideDown .5s ease-in-out forwards;
     top: 50%;
     transform: translate(-50%,-50%);
     width: 80%;
+    height: 90%;
+    overflow-y:scroll;
 }
+
 
 .modal_content ul{
   width: 100%;
@@ -773,10 +781,12 @@ footer{
 }
 
 
+/* login $ register */
+
 .main {
 background-color: #FFFFFF;
 width: 400px;
-height: 400px;
+height: auto;
 margin: 7em auto;
 border-radius: 1.5em;
 box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -852,6 +862,7 @@ padding-bottom: 10px;
 padding-top: 10px;
 font-family: 'Ubuntu', sans-serif;
 margin-left: 35%;
+margin-bottom: 30px;
 font-size: 13px;
 box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
@@ -859,8 +870,12 @@ box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 .forgot {
 text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
 color: #E1BEE7;
-padding-top: 15px;
+padding-bottom: 15px;
+margin-bottom: 20px;
+;
 }
+
+
 
 a {
 text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
