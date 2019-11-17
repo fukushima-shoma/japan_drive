@@ -18,7 +18,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1" />
      <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- Styles -->
-
+    
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -76,7 +76,7 @@
     <main>
                   @yield('content')
     </main>
-    
+
     </div>
     <footer>
 

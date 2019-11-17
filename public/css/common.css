@@ -5,12 +5,15 @@ main #wrapper {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  padding:0;
+  padding: 0;
+}
+
+main {
+  margin: 0;
 }
 
 body {
   font-family: "Nunito", sans-serif;
-  font-weight: 100%;
   width: auto;
   min-height: 100vh;
   margin: 0;
@@ -28,10 +31,10 @@ header{
   background: #333333;
   margin: 0px;
 
-
 }
 
 #navbar{
+  margin: 0;
   max-width: 100%;
   height: 50px;
   display: flex;
@@ -256,7 +259,7 @@ i.theme-icon{
 ul.breadcrumb {
   margin-left:0;
   background: #555;
-  padding: 9px 10px;
+  padding: 9px 40px;
   overflow: hidden;
   margin-top: 0;
 }
@@ -288,8 +291,8 @@ ul.breadcrumb {
 
 /* 検索数表示 */
 .resurch_result{
-  margin-left: 15px;
-  margin-top: 20px;
+  margin-left: 10%;
+  margin-top: 40px;
 }
 
 /* not found */
@@ -343,11 +346,12 @@ ul.breadcrumb {
     width: 70%;
     height: 200px;
     background: white;
-    margin:2em 0;
     position: relative;
     padding: 0.5em 1.5em;
     border-top: solid 2px black;
     border-bottom: solid 2px black;
+    margin-top: 30px;
+    margin-bottom: 30px;
     margin-left: 13%;
     align-content: right;
     display: flex;
@@ -442,7 +446,7 @@ p.content{
   height: 250px;
   background: white;
   position: relative;
-  margin-left: 10%;
+  margin-left: 12%;
   align-content: right;
   display: flex;
   margin-top: 50px;
@@ -496,7 +500,7 @@ p.content{
   height: 250px;
   background: white;
   position: relative;
-  margin-left: 10%;
+  margin-left: 12%;
   align-content: right;
   display: flex;
   margin-top: 50px;
@@ -540,7 +544,7 @@ p.content{
 
 .spot_basic-information{
   width: 60%;
-  margin-left: 14%;
+  margin-left: 17%;
 }
 
 table{
@@ -606,7 +610,7 @@ h3.comment-botton{
 
 .non-login{
   width: 60%;
-  margin-left: 14%;
+  margin-left: 17%;
   margin-top: 20px;
   height: 120px;
   display: flex;
@@ -672,7 +676,7 @@ form.comment-form{
 	display: block;
 	position: relative;
 	width: 100px;
-  height: 25px;
+  height: 21px;
 	padding: 0.8em;
 	text-align: center;
 	text-decoration: none;
@@ -688,13 +692,13 @@ form.comment-form{
 
 /* コメントカード */
 h3.comment-card{
-  margin-left: 14%;
+  margin-left: 17%;
   text-align: center;
 }
 
 .comment-card {
   width: 60%;
-  margin-left: 14%;
+  margin-left: 17%;
   margin-top: 20px;
   padding: 0.5em 1em;
   color: #FFF;
@@ -909,8 +913,6 @@ a.js-modal-close {
 }
 
 
-
-
 /* footer */
 footer{
   margin-top: auto;
@@ -920,6 +922,100 @@ footer{
   bottom: 0px;
 }
 
+/* ページャー */
+
+
+.pagination {
+  display: -webkit-box;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+  justify-content: center;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #444444;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+  z-index: 2;
+  color: #1d68a7;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.page-link:focus {
+  z-index: 2;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+}
+
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.page-item:last-child .page-link {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #444444;
+  border-color: #444444;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+.pagination-lg .page-link {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.pagination-lg .page-item:first-child .page-link {
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.pagination-lg .page-item:last-child .page-link {
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.pagination-sm .page-link {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7875rem;
+  line-height: 1.5;
+}
+
+.pagination-sm .page-item:first-child .page-link {
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
+}
+
+.pagination-sm .page-item:last-child .page-link {
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+}
 
 
 
@@ -932,6 +1028,7 @@ height: auto;
 margin: 7em auto;
 border-radius: 1.5em;
 box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+
 }
 
 .sign {

@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="main">
    <p class="sign" align="center">会員登録</p>
    <form class="form1" method="POST" action="{{ route('register') }}">
@@ -32,4 +33,5 @@
      <button class="submit" align="center">登録する</button>
   </form>
 </div>
+
 @endsection
