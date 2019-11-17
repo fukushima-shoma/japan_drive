@@ -1,9 +1,4 @@
-<style>
-body {
-  background-color: #EEEEEE;
-  font-family: 'Ubuntu', sans-serif;
-}
-</style>
+
 @extends('layouts.app')
 ​
 @section('content')
@@ -26,11 +21,7 @@ body {
        </span>
      @enderror
      <button class="submit" align="center">ログイン</button>
-     @if (Route::has('password.request'))
-     <p class="forgot" align="center">
-      <a  href="{{ route('password.request') }}">パスワードを忘れた方</a>
-    </p>
-     @endif
+   </form>
 </div>
 ​
 @endsection

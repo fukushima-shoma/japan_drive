@@ -1,8 +1,3 @@
-<style>
-.main{
-  height: 500px;
-}
-</style>
 
 @extends('layouts.app')
 
@@ -34,7 +29,7 @@
 ​
      <input id="password-confirm" class="pass form-control" type="password" align="center" placeholder="確認用パスワード" name="password_confirmation" required autocomplete="new-password">
 ​
-     <button class="submit" align="center">登録する</a>
+     <button class="submit" align="center">登録する</button>
   </form>
 </div>
 @endsection

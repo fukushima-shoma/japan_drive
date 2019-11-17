@@ -57,12 +57,17 @@ jQuery(function($) {
 
 
   @isset($search_result)
-  <h5 class="resurch_result">{{ $search_result }}</h5>
+  <h3 class="resurch_result">{{ $search_result }}</h3>
   @endisset
 
   @if(count($posts) == 0)
-    <p>まだお探しの条件に合致するスポットが登録されていません。</p>
-    <a href="{{ route('pages.index') }}">ホームへ戻る</a>
+  <div class="flexbox">
+    <div class=not-found>
+      <p>まだお探しの条件に合致するスポットが登録されていません。</p>
+      <a href="{{ route('pages.index') }}">ホームへ戻る</a>
+    </div>
+  </div>
+
   @endif
 
   @foreach($posts as $post)
@@ -83,7 +88,7 @@ jQuery(function($) {
               </p>
             </div>
             <div class=card-detail>
-              <a href="{{ route('pages.show', 'id='.$post->id) }}" class="detail">詳細</a>
+              <a href="{{ route('pages.show', 'id='.$post->id) }}" class="detail">詳細はこちら</a>
             </div>
           </div>
         </div>
