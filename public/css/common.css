@@ -10,6 +10,7 @@ main #wrapper {
 
 main {
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -30,7 +31,7 @@ header{
   height: 50px;
   background: #333333;
   margin: 0px;
-
+  padding: 0;
 }
 
 #navbar{
@@ -436,9 +437,8 @@ p.content{
 
 #container{
   width: auto;
-  height: auto;
   margin: 0;
-  margin-top: 0px;
+  padding: 0;
 }
 
 .info_header{
@@ -495,22 +495,20 @@ p.content{
   color: black;
 }
 
+/* 写真 */
 .spot-photos-wrap{
-  width: 70%;
-  height: 250px;
+  width: 100%;
+  height: 300px;
   background: white;
   position: relative;
-  margin-left: 12%;
-  align-content: right;
   display: flex;
-  margin-top: 50px;
+  justify-content: center;
+  margin-top: 80px;
   z-index: -1;
 }
 
 .spot-photos-wrap .spot-photos {
     float: left;
-    margin-left: 1px;
-    width: 33%;
     z-index: -1;
 }
 
@@ -525,8 +523,8 @@ p.content{
 
 /*画像のサムネイル*/
 .spot-photo {
-  width:100%;
-  height:200px;
+  width:440px;
+  height:270px;
   object-fit:cover;
   z-index: -1;
 }

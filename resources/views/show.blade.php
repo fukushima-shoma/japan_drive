@@ -126,13 +126,6 @@ $(function(){
           <div class="spot-photos">
             <img class="spot-photo" src="{{ asset('public/image/'.$post->image_path1) }}">
           </div>
-          <div class="spot-photo">
-            <img class="spot-photo" src="{{ asset('public/image/'.$post->image_path2) }}">
-          </div>
-          <div class="spot-photo">
-            <img class="spot-photo" src="{{ asset('public/image/'.$post->image_path3) }}">
-          </div>
-        </div>
       </div>
       <div class="spot_basic-information">
         <h2>スポット基本情報</h2>
