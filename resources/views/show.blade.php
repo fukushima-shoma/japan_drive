@@ -1,5 +1,5 @@
 <style>
-  
+
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -180,7 +180,7 @@ $(function(){
               {{ csrf_field() }}
               <div class="form-textarea">
                 <label for="comment"></label>
-                <textarea class="form-control" rows="5" id="comment" name="comment" placeholder="思い出や感想・おすすめのポイントをお聞かせください。"></textarea>
+                <textarea maxlength="200" class="form-control" rows="5" id="comment" name="comment" placeholder="思い出や感想・おすすめのポイントをお聞かせください。文字制限(200字)"></textarea>
               </div>
               <div class="form-picture">
                 <label for="exampleFormControlFile1">写真を投稿する:</label>

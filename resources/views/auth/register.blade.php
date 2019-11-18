@@ -8,6 +8,7 @@
    <form class="form1" method="POST" action="{{ route('register') }}">
      @csrf
      <input id="name" class="un form-control @error('name') is-invalid @enderror" type="text" align="center" placeholder="ニックネーム" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+     <br>
      @error('name')
          <span class="invalid-feedback" role="alert">
              <strong>{{ $message }}</strong>
@@ -15,6 +16,7 @@
      @enderror
 ​
      <input id="email" class="un form-control @error('email') is-invalid @enderror" type="email" align="center" placeholder="メールアドレス" name="email" value="{{ old('email') }}" required autocomplete="email">
+     <br>
      @error('email')
          <span class="invalid-feedback" role="alert">
              <strong>{{ $message }}</strong>
@@ -22,6 +24,7 @@
      @enderror
 ​
      <input id="password" class="pass form-control @error('password') is-invalid @enderror" type="password" align="center" placeholder="パスワード" name="password" required autocomplete="new-password">
+     <br>
      @error('password')
        <span class="invalid-feedback" role="alert">
            <strong>{{ $message }}</strong>
