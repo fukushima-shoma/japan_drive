@@ -29,7 +29,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-
           ],
           [
             'title' => '美楽温泉 SPA-HERBS',
@@ -48,7 +47,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-
           ],
           [
             'title' => 'さいたま清河寺温泉',
@@ -67,7 +65,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-​
           ],
           [
             'title' => 'おふろcafé utatane',
@@ -86,7 +83,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-​
           ],
           [
             'title' => '北浦和公園',
@@ -105,7 +101,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-​
           ],
           [
             'title' => '見沼自然公園',
@@ -124,7 +119,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-​
           ],
           [
             'title' => '東武動物公園',
@@ -143,7 +137,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-​
           ],
           [
             'title' => '国営武蔵丘陵森林公園',
@@ -162,7 +155,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-​
           ],
           [
             'title' => 'ムーミンバレーパーク',
@@ -181,7 +173,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-​
           ],
           [
             'title' => '岩槻城址公園',
@@ -200,7 +191,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-
           ],
           [
             'title' => '川越大師 喜多院',
@@ -219,7 +209,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-
           ],
           [
             'title' => '熊谷スポーツ文化公園',
@@ -238,7 +227,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-
           ],
           [
             'title' => '川口市リサイクルプラザ',
@@ -257,7 +245,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-
           ],
           [
             'title' => '行田市郷土博物館',
@@ -276,7 +263,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-
           ],
           [
             'title' => '三峯神社（三峰神社）',
@@ -295,7 +281,6 @@ class PostsTableSeeder extends Seeder
             'likes_count' => 0,
             'created_at' => '2019-11-13',
             'updated_at' => null
-
           ],
           [
             'title' => '多聞院',
@@ -1345,7 +1330,7 @@ class PostsTableSeeder extends Seeder
           [
             'title' => '杉戸天然温泉 雅楽の湯',
             'theme' => '温泉',
-            'user_id' => 6,
+            'category_id' => 6,
             'area_id' => 62,
             'zip' => '345-0036',
             'prefecture' => '埼玉県',
