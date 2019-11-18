@@ -40,6 +40,7 @@ class PagesController extends Controller
         } else {
             $posts = $query->paginate(5);
             $search_result = '該当件数 '.$posts->total().'件中'.$posts->firstItem().'件～'.$posts->lastItem().'件表示';
+                    dd($posts);
             return view ('area',compact('posts'), ['search_result' => $search_result]);
         }
     }else{

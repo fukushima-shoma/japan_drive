@@ -73,7 +73,7 @@ jQuery(function($) {
   @foreach($posts as $post)
         <div class="card">
           <div class="card-left">
-            <img class="card-photo" src="{{ asset('public/image/'.$post->image_path1) }}">
+            <img class="card-photo" src="{{ asset( $post->image_path1 ) }}">
           </div>
           <div class="card-right">
             <div class=card-title>
