@@ -124,7 +124,11 @@ $(function(){
           </div><!--modal-->
         <div class="spot-photos-wrap">
           <div class="spot-photos">
-            <img class="spot-photo" src="{{ asset('public/image/'.$post->image_path1) }}">
+            @if(isset($post->image_path1))
+            <img class="spot-photo" src="{{ asset( $post->image_path1 ) }}">
+            @else
+            <img class="spot-photo" src="{{ asset('images/noimage.jpg') }}">
+            @endif
           </div>
       </div>
       <div class="spot_basic-information">

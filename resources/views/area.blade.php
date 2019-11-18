@@ -73,7 +73,11 @@ jQuery(function($) {
   @foreach($posts as $post)
         <div class="card">
           <div class="card-left">
+            @if(isset($post->image_path1))
             <img class="card-photo" src="{{ asset( $post->image_path1 ) }}">
+            @else
+            <img class="card-photo" src="{{ asset('images/noimage.jpg') }}">
+            @endif
           </div>
           <div class="card-right">
             <div class=card-title>
